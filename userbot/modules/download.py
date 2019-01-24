@@ -19,7 +19,7 @@ def progress(current, total):
 
 
 @bot.on(events.NewMessage(pattern=r".download ?(.*)", outgoing=True))
-@bot.on(events.MessageEdited(pattern=r".download ?(.*)", outgoing=True))
+#@bot.on(events.MessageEdited(pattern=r".download ?(.*)", outgoing=True))
 async def download(e):
     if e.fwd_from:
         return

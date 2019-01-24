@@ -9,6 +9,7 @@ from userbot import bot
 
 
 @bot.on(events.NewMessage(pattern=r".screencapture (.*)", outgoing=True))
+<<<<<<< HEAD
 async def _(event):
   if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
     if event.fwd_from:
@@ -28,6 +29,24 @@ async def _(event):
             caption=input_str,
             force_document=True,
             reply_to=event.message.reply_to_msg_id
+=======
+#@bot.on(events.MessageEdited(pattern=r".screencapture (.*)", outgoing=True))
+async def _(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        if SCREEN_SHOT_LAYER_ACCESS_KEY is None:
+            await e.edit(
+                "Need to get an API key from https://screenshotlayer.com/product \nModule stopping!"
+            )
+            return
+        await e.edit("Processing ...")
+        sample_url = "https://api.screenshotlayer.com/api/capture?access_key={}&url={}&fullpage={}&format={}&viewport={}"
+        input_str = e.pattern_match.group(1)
+        response_api = requests.get(
+            sample_url.format(
+                SCREEN_SHOT_LAYER_ACCESS_KEY, input_str, "1", "PNG", "2560x1440"
+            ),
+            stream=True,
+>>>>>>> c3ebdfa... fix bug
         )
         await event.delete()
     except:

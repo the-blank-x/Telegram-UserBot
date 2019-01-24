@@ -43,8 +43,13 @@ def separate_sed(sed_string):
         return replace, replace_with, flags.lower()
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True,pattern='^sed'))
 @bot.on(events.MessageEdited(outgoing=True,pattern='^sed'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^sed"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^sed"))
+>>>>>>> c3ebdfa... fix bug
 async def sed(e):
     sed_result = separate_sed(e.text)
     L=await e.get_reply_message()

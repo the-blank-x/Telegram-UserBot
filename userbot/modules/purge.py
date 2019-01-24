@@ -6,8 +6,13 @@ from userbot import LOGGER,LOGGER_GROUP
 import time
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.fastpurge$'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.fastpurge$'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.purge$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.purge$"))
+>>>>>>> c3ebdfa... fix bug
 async def fastpurger(e):
     if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
         chat = await e.get_input_chat()
@@ -34,8 +39,13 @@ async def fastpurger(e):
              await message.delete()
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.purgeme'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.purgeme'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.purgeme"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.purgeme"))
+>>>>>>> c3ebdfa... fix bug
 async def purgeme(e):
     message=e.text
     count = int(message[9:])
@@ -57,8 +67,13 @@ async def purgeme(e):
         await message.delete()
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.delmsg$'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.delmsg$'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.delmsg$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.delmsg$"))
+>>>>>>> c3ebdfa... fix bug
 async def delmsg(e):
     if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
         i=1
@@ -69,8 +84,13 @@ async def delmsg(e):
             await message.delete()
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.editme'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.editme'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.editme"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.editme"))
+>>>>>>> c3ebdfa... fix bug
 async def editer(e):
  if not e.text[0].isalpha():
    message=e.text
@@ -86,8 +106,13 @@ async def editer(e):
          await bot.send_message(LOGGER_GROUP,"Edit query was executed successfully")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.sd'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.sd'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.sd"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.sd"))
+>>>>>>> c3ebdfa... fix bug
 async def selfdestruct(e):
  if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
     message=e.text

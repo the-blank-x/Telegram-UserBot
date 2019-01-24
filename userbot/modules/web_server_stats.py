@@ -8,8 +8,13 @@ from telethon import events
 from userbot import bot,LOGGER,LOGGER_GROUP
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True,pattern=".webserverstat"))
 @bot.on(events.MessageEdited(outgoing=True,pattern=".webserverstat"))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern=".webserverstat"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern=".webserverstat"))
+>>>>>>> c3ebdfa... fix bug
 async def web_server_stat(e):
     result = ""
     if LOGGER:

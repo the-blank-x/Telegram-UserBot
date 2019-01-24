@@ -11,8 +11,13 @@ from telethon import TelegramClient, events
 from userbot import bot, SPAM,SPAM_ALLOWANCE, BRAIN_CHECKER, LOGGER_GROUP, LOGGER
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True,pattern="^.wizard$"))
 @bot.on(events.MessageEdited(outgoing=True,pattern='^.wizard$'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.promote$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.promote$"))
+>>>>>>> c3ebdfa... fix bug
 async def wizzard(e):
   if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
     rights = ChannelAdminRights(
@@ -30,8 +35,13 @@ async def wizzard(e):
     await e.edit("A perfect magic has happened!")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True,pattern="^.thanos$"))
 @bot.on(events.MessageEdited(outgoing=True,pattern='^.thanos$'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.ban$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.ban$"))
+>>>>>>> c3ebdfa... fix bug
 async def thanos(e):
     if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
         rights = ChannelBannedRights(
@@ -62,8 +72,13 @@ async def thanos(e):
             await bot.send_message(LOGGER_GROUP,str((await e.get_reply_message()).sender_id)+" was banned.")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True,pattern="^.spider$"))
 @bot.on(events.MessageEdited(outgoing=True,pattern='^.spider$'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.mute$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.mute$"))
+>>>>>>> c3ebdfa... fix bug
 async def spider(e):
     if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
         if (await e.get_reply_message()).sender_id in BRAIN_CHECKER:
@@ -106,6 +121,7 @@ async def triggered_ban(e):
         await bot.send_message(e.chat_id,"Job was done, Master! Gimme Cookies!")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(incoming=True,pattern="<triggermute>"))
 async def triggered_mute(e):
     message =e.text
@@ -130,6 +146,13 @@ async def triggered_mute(e):
         await bot(EditBannedRequest(e.chat_id,(await e.get_reply_message()).sender_id,rights))
         await e.delete()
         await bot.send_file(e.chat_id,"Job was done, Master! Gimme Cookies!")
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.unmute$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.unmute$"))
+async def unmute(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        from userbot.modules.sql_helper.spam_mute_sql import unmute
+>>>>>>> c3ebdfa... fix bug
 
 
 @bot.on(events.NewMessage(outgoing=True, pattern='^.speak$'))
@@ -142,11 +165,66 @@ async def unmute(e):
 
 
 @bot.on(events.NewMessage(incoming=True))
-@bot.on(events.MessageEdited(incoming=True))
+#@bot.on(events.MessageEdited(incoming=True))
 async def muter(e):
+<<<<<<< HEAD
          from userbot.modules.sql_helper.spam_mute_sql import is_muted
          L=is_muted(e.chat_id)
          if L:
           for i in L:
              if str(i.sender) == str(e.sender_id):
                  await e.delete()
+=======
+    try:
+        from userbot.modules.sql_helper.spam_mute_sql import is_muted
+        from userbot.modules.sql_helper.gmute_sql import is_gmuted
+    except:
+        return
+    L = is_muted(e.chat_id)
+    K = is_gmuted(e.sender_id)
+    if L:
+        for i in L:
+            if str(i.sender) == str(e.sender_id):
+                await e.delete()
+    for i in K:
+        if i.sender == str(e.sender_id):
+            await e.delete()
+
+@bot.on(events.NewMessage(outgoing=True, pattern="^.ungmute$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.ungmute$"))
+async def unmute(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        try:
+            from userbot.modules.sql_helper.gmute_sql import ungmute
+        except:
+            await e.edit('`Running on Non-SQL Mode!`')
+        ungmute(str((await e.get_reply_message()).sender_id))
+        await e.edit("```Ungmuted Successfully```")
+
+
+@bot.on(events.NewMessage(outgoing=True, pattern="^.gmute$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.gmute$"))
+async def spider(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        if (await e.get_reply_message()).sender_id in BRAIN_CHECKER:
+            await e.edit("`Mute Error! Couldn't mute this user`")
+            return
+        try:
+            from userbot.modules.sql_helper.gmute_sql import gmute
+        except Exception as er:
+            print(er)
+            await e.edit("`Running on Non-SQL mode!`")
+            return
+        gmute(str((await e.get_reply_message()).sender_id))
+        await e.edit("`Spiderman nabs him!`")
+        time.sleep(5)
+        await e.delete()
+        await bot.send_file(
+            e.chat_id, "https://image.ibb.co/mNtVa9/ezgif_2_49b4f89285.gif"
+        )
+        if LOGGER:
+            await bot.send_message(
+                LOGGER_GROUP,
+                str((await e.get_reply_message()).sender_id) + " was muted.",
+            )
+>>>>>>> c3ebdfa... fix bug

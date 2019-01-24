@@ -13,7 +13,7 @@ langi="en"
 
 
 @bot.on(events.NewMessage(outgoing=True, pattern="^.img (.*)"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.img (.*)"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.img (.*)"))
 async def img_sampler(e):
   if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
    await e.edit('Processing...')
@@ -36,8 +36,13 @@ async def img_sampler(e):
    await e.edit("Done. Time taken: "+str(msstartend) + 's')
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True,pattern=r'^.google (.*)'))
 @bot.on(events.MessageEdited(outgoing=True,pattern=r'^.google (.*)'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern=r"^.google (.*)"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern=r"^.google (.*)"))
+>>>>>>> c3ebdfa... fix bug
 async def gsearch(e):
       if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
         match = e.pattern_match.group(1)
@@ -48,8 +53,13 @@ async def gsearch(e):
            await bot.send_message(LOGGER_GROUP,"Google Search query "+match+" was executed successfully")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True,pattern=r'^.wiki (.*)'))
 @bot.on(events.MessageEdited(outgoing=True,pattern=r'^.wiki (.*)'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern=r"^.wiki (.*)"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern=r"^.wiki (.*)"))
+>>>>>>> c3ebdfa... fix bug
 async def wiki(e):
       if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
         match = e.pattern_match.group(1)
@@ -59,8 +69,13 @@ async def wiki(e):
            await bot.send_message(LOGGER_GROUP,"Wiki query "+match+" was executed successfully")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.ud (.*)'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.ud (.*)'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.ud (.*)"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.ud (.*)"))
+>>>>>>> c3ebdfa... fix bug
 async def ud(e):
   if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
    await e.edit("Processing...")
@@ -74,8 +89,13 @@ async def ud(e):
     await e.edit("No result found for **"+str+"**")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.tts'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.tts'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.tts"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.tts"))
+>>>>>>> c3ebdfa... fix bug
 async def tts(e):
   if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
     textx=await e.get_reply_message()
@@ -106,8 +126,13 @@ async def tts(e):
         await e.delete()
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.trt'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.trt'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.trt"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.trt"))
+>>>>>>> c3ebdfa... fix bug
 async def translateme(e):
   if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
     global langi
@@ -127,8 +152,13 @@ async def translateme(e):
         await bot.send_message(LOGGER_GROUP,"Translate query "+message+" was executed successfully")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(pattern='.lang',outgoing=True))
 @bot.on(events.MessageEdited(pattern='.lang',outgoing=True))
+=======
+@bot.on(events.NewMessage(pattern=".lang", outgoing=True))
+#@bot.on(events.MessageEdited(pattern=".lang", outgoing=True))
+>>>>>>> c3ebdfa... fix bug
 async def lang(e):
   if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
       global langi

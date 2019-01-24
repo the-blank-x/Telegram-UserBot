@@ -4,8 +4,13 @@ from userbot import bot
 from userbot import LOGGER,LOGGER_GROUP
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.spam'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.spam'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.spam"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.spam"))
+>>>>>>> c3ebdfa... fix bug
 async def spammer(e):
  if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
     message= e.text
@@ -16,8 +21,13 @@ async def spammer(e):
     await bot.send_message(LOGGER_GROUP,"Spammed successfully")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.bigspam'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.bigspam'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.bigspam"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.bigspam"))
+>>>>>>> c3ebdfa... fix bug
 async def bigspam(e):
   if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
     message = e.text
@@ -29,8 +39,13 @@ async def bigspam(e):
     await bot.send_message(LOGGER_GROUP,"bigspam was successful")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.picspam'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.picspam'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.picspam"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.picspam"))
+>>>>>>> c3ebdfa... fix bug
 async def tiny_pic_spam(e):
  if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
     message= e.text

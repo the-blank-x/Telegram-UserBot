@@ -9,7 +9,7 @@ import asyncio
 
 
 @bot.on(events.NewMessage(incoming=True))
-@bot.on(events.MessageEdited(incoming=True))
+#@bot.on(events.MessageEdited(incoming=True))
 async def filter_incoming_handler(e):
     if not (await e.get_sender()).bot:
         from userbot.modules.sql_helper.filter_sql import get_filters
@@ -23,8 +23,13 @@ async def filter_incoming_handler(e):
                       return
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.addfilter\\s.*'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.addfilter\\s.*'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.filter\\s.*"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.filter\\s.*"))
+>>>>>>> c3ebdfa... fix bug
 async def add_filter(e):
  if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
      from userbot.modules.sql_helper.filter_sql import add_filter
@@ -37,8 +42,13 @@ async def add_filter(e):
      await e.edit("```Filter added successfully```")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.nofilter\\s.*'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.nofilter\\s.*'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.stop\\s.*"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.stop\\s.*"))
+>>>>>>> c3ebdfa... fix bug
 async def remove_filter(e):
  if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
      from userbot.modules.sql_helper.filter_sql import remove_filter
@@ -48,8 +58,13 @@ async def remove_filter(e):
      await e.edit("```Filter removed successfully```")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.rmfilters$'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.rmfilters$'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.rmfilters$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.rmfilters$"))
+>>>>>>> c3ebdfa... fix bug
 async def kick_marie_filter(e):
  if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
     await e.edit("```Will be kicking away all Marie filters.```")
@@ -65,8 +80,13 @@ async def kick_marie_filter(e):
           await bot.send_message(LOGGER_GROUP,"I cleaned all Marie filters at "+str(e.chat_id))
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.get filters$'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.get filters$'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^.filters$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^.filters$"))
+>>>>>>> c3ebdfa... fix bug
 async def filters_active(e):
     if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
         from userbot.modules.sql_helper.filter_sql import get_filters

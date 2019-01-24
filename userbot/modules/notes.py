@@ -4,8 +4,13 @@ import sqlite3
 from userbot import LOGGER, LOGGER_GROUP
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.get notes$'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.get notes$'))
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^\.saved$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^\.saved$"))
+>>>>>>> c3ebdfa... fix bug
 async def notes_active(e):
     if not e.text[0].isalpha() and e.text[0]!="!" and e.text[0]!="/" and e.text[0]!="#" and e.text[0]!="@":
         from userbot.modules.sql_helper.notes_sql import get_notes
@@ -53,9 +58,20 @@ async def incom_note(e):
            return
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern='^.rmnotes$'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='^.rmnotes$'))
 async def remove_notes(e):
+=======
+@bot.on(events.NewMessage(outgoing=True, pattern="^\.rmnotes$"))
+#@bot.on(events.MessageEdited(outgoing=True, pattern="^\.rmnotes$"))
+async def purge_notes(e):
+    try:
+        from userbot.modules.sql_helper.notes_sql import rm_all_notes
+    except:
+        await e.edit("`Running on Non-SQL mode!`")
+        return
+>>>>>>> c3ebdfa... fix bug
     if not e.text[0].isalpha():
         await e.edit("```Purging all Marie notes.```")
         time.sleep(3)
